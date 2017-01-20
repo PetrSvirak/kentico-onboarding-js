@@ -1,6 +1,7 @@
 import './sticky-footer.css';
 import React, { Component } from 'react';
 import List from './components/List';
+import TsComponent from './components/TsComponent.tsx';
 
 class App extends Component {
   render() {
@@ -23,6 +24,7 @@ class App extends Component {
           </div>
 
           <section id="app-content">
+            <TsComponent />
             <List />
           </section>
         </div>
