@@ -24,7 +24,7 @@ class App extends Component {
           </div>
 
           <section id="app-content">
-            <TsComponent />
+            <TsComponent name="[̲̅T][̲̅y][̲̅p][̲̅e][̲̅S][̲̅c][̲̅r][̲̅i][̲̅p][̲̅t]" />
             <List />
           </section>
         </div>
