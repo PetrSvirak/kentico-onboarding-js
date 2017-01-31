@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react';
+import { isNotEmpty } from '../utils/text';
 
 class NewItem extends Component {
   static propTypes = {
@@ -13,8 +14,6 @@ class NewItem extends Component {
     this._onDescriptionChanged = this._onDescriptionChanged.bind(this);
     this._onAddClicked = this._onAddClicked.bind(this);
   }
-
-  _canClickOnAddButton = () => (this.state.description || '').length > 0;
 
   _onDescriptionChanged(event) {
     const newDescription = event.target.value;
@@ -40,10 +39,11 @@ class NewItem extends Component {
           <button
             className="btn btn-success"
             type="button"
+            title="Add"
             onClick={this._onAddClicked}
-            disabled={!this._canClickOnAddButton}
+            disabled={!isNotEmpty(this.state.description)}
           >
-            Add
+            <span className="glyphicon glyphicon-plus" />
           </button>
         </span>
       </div>
