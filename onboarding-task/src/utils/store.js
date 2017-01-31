@@ -1,11 +1,11 @@
 import * as Immutable from 'immutable';
-import Item from '../models/Item';
+import Item from '../models/Item.ts';
 
 const getStaticItems = () => [
-  new Item('Make a coffee'),
-  new Item('Make a coffee great again'),
-  new Item('We want you, coffee!'),
-  new Item('Coffee can do it \uD83D\uDCAA'),
+  Item.newItem('Make a coffee'),
+  Item.newItem('Make a coffee great again'),
+  Item.newItem('We want you, coffee!'),
+  Item.newItem('Coffee can do it \uD83D\uDCAA'),
 ];
 
 const getStaticItemsDictionary = () => getStaticItems()

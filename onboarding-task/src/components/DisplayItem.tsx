@@ -1,22 +1,20 @@
-import React, { PropTypes } from 'react';
-import ImmutablePropTypes from 'react-immutable-proptypes';
+import * as React from 'react';
+import Item from '../models/Item';
+
+interface IDisplayItemProps extends JSX.IntrinsicAttributes {
+  item: Item;
+  index: number;
+  onItemClick: Function;
+}
 
 const DisplayItem = ({
-    item: { description },
-    index,
-    onItemClick,
-  }) => (
+  item: { description },
+  index,
+  onItemClick,
+}: IDisplayItemProps) => (
   <div onClick={() => onItemClick()}>
     {index}. {description}
   </div>
 );
-
-DisplayItem.propTypes = {
-  item: ImmutablePropTypes.recordOf({
-    description: PropTypes.string.isRequired,
-  }),
-  index: PropTypes.number.isRequired,
-  onItemClick: PropTypes.func.isRequired,
-};
 
 export default DisplayItem;
