@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 import ExistingItem from '../containers/ExistingItem';
-import NewItem from '../containers/NewItem';
+import NewItem from '../containers/NewItem.tsx';
 import UpdateAllEditedItems from '../containers/UpdateAllEditedItems';
 
 const List = ({ items, isMultipleItemsEdited }) => {

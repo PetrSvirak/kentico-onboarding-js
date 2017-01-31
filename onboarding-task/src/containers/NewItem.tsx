@@ -1,15 +1,15 @@
 import * as ReactRedux from 'react-redux';
-import NewItemComponent from '../components/NewItem';
+import NewItemComponent, { INewItemProps } from '../components/NewItem';
 import addItemAction from '../actions/addItem';
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch: Function) => {
   return {
-    onSubmit: description => dispatch(addItemAction(description)),
-  };
+    onSubmit: (description: string) => dispatch(addItemAction(description)),
+  } as INewItemProps;
 };
 
-const NewItem = ReactRedux.connect(
-  undefined,
+const NewItem = ReactRedux.connect<any, INewItemProps, undefined>(
+  undefined as ReactRedux.FuncOrSelf<any>,
   mapDispatchToProps,
 )(NewItemComponent);
 

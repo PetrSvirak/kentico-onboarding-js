@@ -1,12 +1,16 @@
-import React, { Component, PropTypes } from 'react';
+import * as React from 'react';
 import { isNotEmpty } from '../utils/text';
 
-class NewItem extends Component {
-  static propTypes = {
-    onSubmit: PropTypes.func.isRequired,
-  };
+interface INewItemProps {
+  onSubmit(description: string): void;
+}
 
-  constructor(props) {
+interface NewItemState {
+  description: string;
+}
+
+class NewItem extends React.Component<INewItemProps, NewItemState> {
+  constructor(props: INewItemProps) {
     super(props);
 
     this.state = { description: '' };
@@ -15,8 +19,8 @@ class NewItem extends Component {
     this._onAddClicked = this._onAddClicked.bind(this);
   }
 
-  _onDescriptionChanged(event) {
-    const newDescription = event.target.value;
+  _onDescriptionChanged(event: React.SyntheticEvent<HTMLInputElement>) {
+    const newDescription = event.currentTarget.value as string;
     this.setState({ description: newDescription });
   }
 
@@ -52,3 +56,4 @@ class NewItem extends Component {
 }
 
 export default NewItem;
+export { INewItemProps };
