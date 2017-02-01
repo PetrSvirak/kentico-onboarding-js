@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 import DisplayItem from './DisplayItem.tsx';
-import EditItem from '../containers/EditItem';
+import EditItem from '../containers/EditItem.tsx';
 
 const ExistingItem = props => {
   if (props.isEdited) {

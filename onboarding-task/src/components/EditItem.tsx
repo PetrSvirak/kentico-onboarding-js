@@ -1,19 +1,21 @@
-import React, { Component, PropTypes } from 'react';
+import * as React from 'react';
+import Item from '../models/Item';
 
-class EditItem extends Component {
-  static propTypes = {
-    index: PropTypes.number.isRequired,
-    isStorable: PropTypes.bool,
-    isOriginal: PropTypes.bool,
-    description: PropTypes.string.isRequired,
-    onDescriptionChange: PropTypes.func.isRequired,
-    onUpdateButtonClick: PropTypes.func.isRequired,
-    onCancelButtonClick: PropTypes.func.isRequired,
-    onDeleteButtonClick: PropTypes.func.isRequired,
-    onOriginButtonClick: PropTypes.func.isRequired,
-  };
+interface IEditItemProps {
+  index: number;
+  item: Item;
+  isStorable: boolean;
+  isOriginal: boolean;
+  description: string;
+  onDescriptionChange(description: string, isOriginal: boolean): void;
+  onUpdateButtonClick(description: string): void;
+  onCancelButtonClick(): void;
+  onDeleteButtonClick(): void;
+  onOriginButtonClick(): void;
+}
 
-  constructor(props) {
+class EditItem extends React.Component<IEditItemProps, undefined> {
+  constructor(props: IEditItemProps) {
     super(props);
 
     this._onDescriptionChange = this._onDescriptionChange.bind(this);
@@ -21,8 +23,8 @@ class EditItem extends Component {
 
   _onUpdateButtonClick = () => this.props.onUpdateButtonClick(this.props.description);
 
-  _onDescriptionChange(event) {
-    const newDescription = event.target.value;
+  _onDescriptionChange(event: React.SyntheticEvent<HTMLInputElement>) {
+    const newDescription = event.currentTarget.value as string;
     const isOriginal = this.props.isOriginal && this.props.description === newDescription;
     this.props.onDescriptionChange(newDescription, isOriginal);
   }
@@ -82,3 +84,4 @@ class EditItem extends Component {
 }
 
 export default EditItem;
+export { IEditItemProps };
