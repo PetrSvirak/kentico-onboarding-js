@@ -1,17 +1,10 @@
 import * as React from 'react';
-import Item from '../models/Item';
+import * as EditItemMap from '../containers/maps/EditItem';
+import { IItem } from '../models/Item';
 
-interface IEditItemProps {
+interface IEditItemProps extends EditItemMap.IStateProps, EditItemMap.IDispatchProps {
   index: number;
-  item: Item;
-  isStorable: boolean;
-  isOriginal: boolean;
-  description: string;
-  onDescriptionChange(description: string, isOriginal: boolean): void;
-  onUpdateButtonClick(description: string): void;
-  onCancelButtonClick(): void;
-  onDeleteButtonClick(): void;
-  onOriginButtonClick(): void;
+  item: IItem;
 }
 
 class EditItem extends React.Component<IEditItemProps, undefined> {
