@@ -24,17 +24,11 @@ class Item extends Record(defaultItem) implements IItem {
   }
 
   setId(id: string): IItem {
-    return new Item({
-      ...(this as IItem),
-      id,
-    });
+    return new Item(this.set('id', id));
   }
 
   setDescription(description: string): IItem {
-    return new Item({
-      ...(this as IItem),
-      description,
-    });
+    return new Item(this.set('description', description));
   }
 
   private constructor(values: Object) {

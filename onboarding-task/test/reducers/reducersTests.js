@@ -1,8 +1,6 @@
-import * as matchers from 'jest-immutable-matchers';
+import immutableTests from '../immutableTests';
 
-const reducersTests = (reducer, specs) => () => {
-  beforeEach(() => jest.addMatchers(matchers));
-
+const reducersTests = (reducer, specs) => immutableTests(() => {
   it('undefined action does not change state', () => {
     const expectedState = 'no change';
 
@@ -20,6 +18,6 @@ const reducersTests = (reducer, specs) => () => {
   });
 
   specs();
-};
+});
 
 export default reducersTests;
